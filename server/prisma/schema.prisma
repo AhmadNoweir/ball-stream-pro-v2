@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  email        String   @unique
+  passwordHash String
+  avatar       String?
+  createdAt    DateTime @default(now())
+
+  sentMessages     Message[]       @relation("SentMessages")
+  receivedMessages Message[]       @relation("ReceivedMessages")
+  favourites       Favourite[]
+  matchComments    MatchComment[]
+}
+
+model Favourite {
+  id       String @id @default(uuid())
+  userId   String
+  teamName String
+  user     User   @relation(fields: [userId], references: [id])
+
+  @@unique([userId, teamName])
+}
+
+model MatchComment {
+  id        String   @id @default(uuid())
+  matchId   String
+  content   String
+  timestamp DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  timestamp DateTime @default(now())
+  isRead    Boolean  @default(false)
+
+  senderId   String
+  receiverId String
+  sender     User @relation("SentMessages", fields: [senderId], references: [id])
+  receiver   User @relation("ReceivedMessages", fields: [receiverId], references: [id])
+}

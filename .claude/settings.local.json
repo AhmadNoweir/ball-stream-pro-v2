@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx prisma *)",
+      "Bash(npx tsx *)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/register -H \"Content-Type: application/json\" -d '{\"username\":\"TestUser\",\"email\":\"test@test.com\",\"password\":\"password123\"}')",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/login -H \"Content-Type: application/json\" -d '{\"email\":\"test@test.com\",\"password\":\"password123\"}')",
+      "Bash(curl -s http://localhost:3000/api/matches/live)",
+      "Bash(npm run *)",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(json.dumps\\(data['matches'][0], indent=2\\)\\)\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\(j.matches[0],null,2\\)\\)}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches/557135\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>console.log\\(JSON.stringify\\(JSON.parse\\(d\\),null,2\\)\\)\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches?dateFrom=2026-04-14&dateTo=2026-04-17&status=FINISHED\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);const m=j.matches?.find\\(x=>x.competition.code==='PL'||x.competition.code==='BL1'||x.competition.code==='SA'\\);if\\(m\\)console.log\\(m.id,m.homeTeam.name,'vs',m.awayTeam.name\\);else{console.log\\('ids:',j.matches?.slice\\(0,3\\).map\\(x=>x.id+' '+x.competition.code\\)\\)}}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches/556724\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/teams/81/matches?status=FINISHED&limit=5\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(Object.keys\\(j\\)\\);if\\(j.matches\\)console.log\\('fields:',Object.keys\\(j.matches[0]||{}\\)\\)}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/teams/81\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\({...j,squad:j.squad?.slice\\(0,3\\),runningCompetitions:j.runningCompetitions?.slice\\(0,2\\)},null,2\\)\\)}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches/556724/head2head?limit=5\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\({aggregates:j.aggregates,matchCount:j.resultSet},null,2\\)\\)}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/competitions/PL/standings\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);const t=j.standings?.[0]?.table?.slice\\(0,3\\);console.log\\(JSON.stringify\\(t,null,2\\)\\)}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches?dateFrom=2026-04-14&dateTo=2026-04-18\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);j.matches.slice\\(0,5\\).forEach\\(m=>console.log\\(m.id, m.homeTeam.tla,'vs',m.awayTeam.tla, m.status\\)\\)}\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches/556722/head2head?limit=10\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>console.log\\(JSON.stringify\\(JSON.parse\\(d\\).aggregates,null,2\\)\\)\\)\")",
+      "Bash(curl -s \"https://api.football-data.org/v4/matches/556724/head2head?limit=10\" -H \"X-Auth-Token: 6deae54614854c67a8f07f7035958c78\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\('aggregates:', JSON.stringify\\(j.aggregates,null,2\\)\\);console.log\\('recent matches:',j.matches?.length\\);if\\(j.matches?.[0]\\)console.log\\('sample:',JSON.stringify\\({home:j.matches[0].homeTeam.name,away:j.matches[0].awayTeam.name,score:j.matches[0].score?.fullTime,winner:j.matches[0].score?.winner},null,2\\)\\)}\\)\")",
+      "Bash(node -e \"const path = require\\('path'\\); console.log\\(path.resolve\\(__dirname, 'src', '../../.env'\\)\\)\")",
+      "Read(//c/Users/ZBOk/Desktop/ball-stream-pro/ball-stream-pro/server/**)",
+      "Bash(wait)",
+      "Bash(taskkill //F //IM node.exe)"
+    ]
+  }
+}

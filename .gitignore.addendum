@@ -1,0 +1,5 @@
+# Add these to your .gitignore if not already present:
+.env.local
+.env.*.local
+.DS_Store
+*.log
